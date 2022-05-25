@@ -34,7 +34,7 @@ export function EURToUSD(){
                 <div className='dates'>
                     <div className='start-date'>
                         <label htmlFor="startDate">Date: </label>
-                        <input type="date" onChange={onChangeStartDate} value={startDate}/>
+                        <input type="date" onChange={onChangeStartDate} value={endDate}/>
                     </div>
                     <div className='btn' onClick={getRate}>Get Rate</div>
                 </div>
