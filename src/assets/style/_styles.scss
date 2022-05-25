@@ -54,3 +54,16 @@ input {
 .container {
     padding-inline: 8vw;
 }
+
+.btn{
+    position: relative;
+    padding: 2px 4px;
+    background-color: #ababff;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px 0px grey;
+    &:hover{
+        top: 2px;
+        box-shadow: 0px 0px 0px 0px grey;
+    }
+}
