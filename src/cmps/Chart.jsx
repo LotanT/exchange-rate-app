@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 export function Chart({ exchangeRate }) {
 
     const data = Object.keys(exchangeRate).map(key => {
-        return { date: key, rate: exchangeRate[key] }
+        return { date: key, Rate: exchangeRate[key] }
     })
 
     const avarageRate = Object.values(exchangeRate).reduce((acc, currRate) => {
@@ -27,10 +27,10 @@ export function Chart({ exchangeRate }) {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="date" />
-                    <YAxis type="number" domain={[dataMin => (dataMin.toFixed(1)), dataMax => (dataMax.toFixed(3))]} />
+                    <YAxis type="number" domain={['auto,auto']} />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="rate" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="Rate" stroke="#8884d8" activeDot={{ r: 8 }} />
                 </LineChart>
             </ResponsiveContainer>
         </section>

@@ -11,16 +11,17 @@ export function GBPToUSD() {
 
 
     const onChangeStartDate = ({ target }) => {
-        setStartDate(target.value);
-    };
-
-    const onChangeEndDate = ({ target }) => {
         setEndDate(target.value);
+        let startDate = new Date(new Date(target.value).getTime()- 6 * 24 * 60 * 60 * 1000)
+        let dd = startDate.getDate()
+        let mm = startDate.getMonth()+1
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+        setStartDate(`${startDate.getFullYear()}-${mm}-${dd}`)
     };
 
     const getRate = async () => {
         const res = await rateService.getRate('GBP',startDate, endDate)
-        console.log(res.USD_GBP);
         setExchangeRate(res.USD_GBP)
     }
 
@@ -32,12 +33,8 @@ export function GBPToUSD() {
                 </div>
                 <div className='dates'>
                     <div className='start-date'>
-                        <label htmlFor="startDate">Start Date: </label>
+                        <label htmlFor="startDate">Date: </label>
                         <input type="date" onChange={onChangeStartDate} value={startDate}/>
-                    </div>
-                    <div className='end-date'>
-                        <label htmlFor="endDate">End Date: </label>
-                        <input type="date" onChange={onChangeEndDate} value={endDate}/>
                     </div>
                     <div className='btn' onClick={getRate}>Get Rate</div>
                 </div>
