@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import './assets/style/main.scss'
+import { Header } from './cmps/Header';
+import { EURToUSD } from './pages/EURToUSD';
+import { GBPToUSD } from './pages/GBPToUSD';
+import { Welcome } from './pages/Welcome';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App">
+      <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Welcome/>}/>
+        <Route path='/eur' element={<EURToUSD/>}/>
+        <Route path='/gbp' element={<GBPToUSD/>}/>
+      </Routes>
+      </BrowserRouter>
+    </section>
   );
 }
 

@@ -1,0 +1,17 @@
+.header{
+    background-color: #4caf50;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    .header-title{
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+    .links{
+        display: flex;
+        gap: 20px;
+    }
+}
